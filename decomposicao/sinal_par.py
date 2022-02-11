@@ -2,7 +2,7 @@ from math  import *
 from numpy import *
 from pylab import *
 
-# sinal x[n] = 3*n + 5
+# sinal x[n]
 def x(n):
     return n**3 - 5
  
