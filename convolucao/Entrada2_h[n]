@@ -1,0 +1,33 @@
+# Bibliotecas importadas
+from numpy import *
+from pylab import *
+ 
+
+# Impulso
+def delta(n):
+    return where(n==0, 1, 0)
+
+# x[n]
+def x(n):
+    return delta(n) + delta(n - 1) + delta(n - 2) + delta(n - 3) + delta(n-4)
+
+# h[n]
+def h(n):
+    return 0.5*delta(n) + 0.6*delta(n - 1) + 0.7*delta(n - 2) + 0.8*delta(n - 3) + 0.9*delta(n-4)
+ 
+
+n = arange(-1, 7, 1)
+y = h(n) + h(n - 1) + h(n - 2) + h(n - 3)
+
+# Plot do gráfico da entrada h[n]
+fig = figure(1)
+fig.set_size_inches((10., 8.))
+ 
+var = fig.add_subplot(3, 2, 1)
+var.stem(n, h(n), "k-", "ko", "k-")
+var.set_xlim([ -2, 6 ])
+var.set_ylim([ 0, 1.5 ])
+var.set_title('h[n]')
+var.set_xticklabels(n)
+
+savefig("conv-in-1.png", bbox_inches='tight')
