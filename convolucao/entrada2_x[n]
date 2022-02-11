@@ -1,4 +1,4 @@
-# Bibliotecas
+# Bibliotecas importadas
 from numpy import *
 from pylab import *
  
